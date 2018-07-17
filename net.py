@@ -33,7 +33,7 @@ class Network:
                 neuron.w = self.generate_weights(self.net[i-1].__len__())
 
     # Take the answers from network
-    def __work(self,inputs = []):
+    def work(self,inputs = []):
         # Set first layer
         for i in range(0,self.net[0].__len__()):
             self.net[0][i].value = inputs[i]
@@ -72,7 +72,7 @@ class Network:
         return outputs
 
     # Learning algorithm - reverse error recognition
-    def __learning_algorithm(self,answers = []):
+    def learning_algorithm(self,answers = []):
         # Last layer foults
         for i in range(0,answers.__len__()):
             self.net[-1][i].foult = answers[i] - self.net[-1][i].value
@@ -91,13 +91,13 @@ class Network:
                                              * self.net[i][k].value
 
     # Activate function
-    def __func(self,x):
+    def func(self,x):
         k = 0.1
         num = (1.0/(1.0 + (e**(-1.0 * x))))
         return k * num * (1.0 - num)
 
     # Generate numbers int range from -0.5 to +0.5
-    def __generate_weights(self,size = 1):
+    def generate_weights(self,size = 1):
         weights = []
         for i in range(0,size):
             weights.append(random() - 0.5)
@@ -105,9 +105,8 @@ class Network:
         return weights
 
     # Set neurons values on 0
-    def __normalize(self):
+    def normalize(self):
         for arr in self.net:
             for neuron in arr:
                 neuron.value = 0
                 neuron.foult = 0
-
