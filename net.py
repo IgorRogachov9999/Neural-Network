@@ -82,7 +82,6 @@ class Network:
             for j in range(0,self.net[i].__len__()):
                 for k in range(0,self.net[i+1].__len__()):
                     self.net[i][j].foult += self.net[i+1][k].foult * self.net[i+1][k].w[j]
-
         # Correction
         for i in range(0,self.net.__len__() - 1):
             for j in range(0,self.net[i+1].__len__()):
@@ -90,7 +89,7 @@ class Network:
                     self.net[i+1][j].w[k] += self.net[i+1][j].foult * self.func(self.net[i+1][j].value) \
                                              * self.net[i][k].value
 
-    # Activate function
+    # Activate function #
     def func(self,x):
         k = 0.1
         num = (1.0/(1.0 + (e**(-1.0 * x))))

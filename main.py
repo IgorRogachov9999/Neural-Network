@@ -2,7 +2,7 @@ from net import Network
 from time import sleep
 from random import random
 import math
-
+#
 network = Network([1,5,5,1])
 
 a = 0
